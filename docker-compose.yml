@@ -11,7 +11,8 @@ services:
       - db
     # Solo trabajar ports en un solo lado
     ports:
-      - "3000:3000"
+      # esto para poder hacer el escalado de la aplicacion
+      - "3000-3001:3000"
     # trabajar directamente con el codigo en docker
     # volumes:
     #   - .:/usr/src
