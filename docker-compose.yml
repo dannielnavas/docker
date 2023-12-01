@@ -2,20 +2,22 @@ version: "3.8"
 
 services:
   app:
-    build: .
+    # build: .
+    image: platziapp
     # image: <nombre de la imagen>
     environment:
       MONGO_URL: "mongodb://db:27017/test"
     depends_on:
       - db
+    # Solo trabajar ports en un solo lado
     ports:
       - "3000:3000"
     # trabajar directamente con el codigo en docker
-    volumes:
-      - .:/usr/src
+    # volumes:
+    #   - .:/usr/src
       # conservar lo que tiene el contenedor en /usr/src/node_modules
-      - /usr/src/node_modules
-    command: npx nodemon index.js
+    #   - /usr/src/node_modules
+    # command: npx nodemon index.js
 
   db:
     image: mongo

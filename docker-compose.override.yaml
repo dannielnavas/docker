@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    # cuando toma una imagen
+    build: .
+    environment:
+      UNA_VARIABLE: "hola"
+    volumes:
+      - .:/usr/src
+      # conservar lo que tiene el contenedor en /usr/src/node_modules
+      - /usr/src/node_modules
+    command: npx nodemon index.js
