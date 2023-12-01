@@ -30,3 +30,18 @@ services:
       resources:
         limits:
           memory: 70m
+
+
+
+Shell: Ejecuta el proceso como hijo del shell
+
+
+FROM ubuntu:trusty
+COPY ["loop.sh", "/"]
+CMD /loop.sh
+Exec: Ejecuta el comando como principal
+
+
+FROM ubuntu:trusty
+COPY ["loop.sh", "/"]
+CMD ["/loop.sh"]
